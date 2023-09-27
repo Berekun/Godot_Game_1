@@ -1,18 +1,21 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://prota_movetxt/Prota.png" type="Texture" id=1]
-[ext_resource path="res://prota_movetxt/player.gd" type="Script" id=2]
+[ext_resource path="res://prota_movetxt/KinematicBody2D.tscn" type="PackedScene" id=1]
+[ext_resource path="res://map/rock.tscn" type="PackedScene" id=2]
 
 [node name="world" type="Node2D"]
 
-[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
-position = Vector2( 164, 75 )
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
+[node name="KinematicBody2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 298, 152 )
 
-[node name="Sprite" type="Sprite" parent="KinematicBody2D"]
-texture = ExtResource( 1 )
-hframes = 8
-vframes = 8
+[node name="StaticBody2D" parent="." instance=ExtResource( 2 )]
+position = Vector2( 196, 155 )
+
+[node name="StaticBody2D2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 399, 158 )
+
+[node name="StaticBody2D3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 296, 218 )
+
+[node name="StaticBody2D4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 297, 92 )
