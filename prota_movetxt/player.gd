@@ -34,14 +34,8 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity)
 
 func shoot():
-	if Input.is_action_pressed("shoot"):
-		var bala = Bala.instance()
-		bala.position = self.position
-		bala.angle = get_angle_to(get_global_mouse_position())
-		get_parent().add_child(bala)
+
 		
-
-
 
 func _on_Timer_timeout():
 	shoot()

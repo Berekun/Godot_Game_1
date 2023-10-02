@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://map/world.png" type="Texture" id=1]
+[ext_resource path="res://Bullets/bullet.jpeg" type="Texture" id=1]
 [ext_resource path="res://Bullets/Bala.gd" type="Script" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
@@ -12,11 +12,11 @@ height = 0.0
 
 [node name="KinematicBody2d" type="KinematicBody2D"]
 collision_layer = 0
-collision_mask = 2
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( -1, -1 )
+position = Vector2( -1.19209e-07, 0 )
+scale = Vector2( 2.83333, 2.25 )
 texture = ExtResource( 1 )
 hframes = 40
 vframes = 36

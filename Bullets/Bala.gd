@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 var movement = Vector2.ZERO
 
-var velocity  = 300 
+var velocity  = 1200 
 var angle = 0
 
 func _ready():
@@ -15,4 +15,5 @@ func _physics_process(delta):
 	movement = move_and_slide(movement)
 	
 func _on_Area2D_body_entered(body):
-	self.queue_free()
+		self.queue_free()
+
