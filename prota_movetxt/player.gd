@@ -14,7 +14,7 @@ onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
 
 func _ready():
-	
+	$Timer.start(0.4)
 
 func _physics_process(delta):
 	var input_vector = Vector2.ZERO
