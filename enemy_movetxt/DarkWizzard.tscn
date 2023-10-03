@@ -208,7 +208,7 @@ start_node = "Idle"
 [sub_resource type="AnimationNodeStateMachinePlayback" id=17]
 
 [sub_resource type="CircleShape2D" id=25]
-radius = 144.347
+radius = 134.034
 
 [node name="enemy" type="KinematicBody2D"]
 collision_layer = 2
@@ -218,7 +218,7 @@ script = ExtResource( 2 )
 texture = ExtResource( 1 )
 hframes = 8
 vframes = 8
-frame = 16
+frame = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -251,3 +251,4 @@ shape = SubResource( 25 )
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
