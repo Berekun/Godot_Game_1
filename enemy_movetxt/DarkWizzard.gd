@@ -12,9 +12,9 @@ var movement = Vector2.ZERO
 var velocity = 100
 
 func _ready():
-	$Timer.start(0.4)
+	$Timer.start(1)
 
-func _physics_process(delta):
+func _physics_process(delta): 
 	movement = player.position - self.position
 	
 	if movement != Vector2.ZERO:
@@ -29,11 +29,15 @@ func _physics_process(delta):
 	movement = move_and_slide(movement)
 	
 func shoot():
-		var bala = Bala.instance()
-		bala.position = self.position
-		bala.angle = movement.direction_to(player.position).angle()
-		get_parent().add_child(bala)
+	var bala = Bala.instance()
+	bala.position = self.position
+	bala.angle = get_angle_to(player.position)
+	get_parent().add_child(bala)
 
 
 func _on_Timer_timeout():
 	shoot()
+
+
+func _on_Area2D_body_entered(body):
+	movement = Vector2.ZERO
