@@ -206,7 +206,7 @@ start_node = "Idle"
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=17]
 
-[node name="KinematicBody2D" type="KinematicBody2D"]
+[node name="player" type="KinematicBody2D"]
 position = Vector2( 0, -3 )
 collision_mask = 2
 script = ExtResource( 1 )

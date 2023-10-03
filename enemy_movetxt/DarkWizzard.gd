@@ -6,13 +6,14 @@ onready var player = get_parent().get_node("player")
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
-
+var isInside = false
 onready var movement = player.position - self.position
 
 var velocity = 100
 
 func _ready():
-	$Timer.start(1)
+	$ShootTimer.start(1)
+	$AreaDelay.start()
 
 func _physics_process(delta): 
 	if movement == Vector2.ZERO:
@@ -36,10 +37,16 @@ func shoot():
 func _on_Timer_timeout():
 	shoot()
 
-
 func _on_Area2D_body_entered(body):
-	if body != self:
-		movement = Vector2.ZERO
+	if body != self && body.name == "player":
+		isInside = true
 	
 func _on_Area2D_body_exited(body):
-	movement = player.position - self.position
+	if body.name == "player":
+		isInside = false
+
+func _on_AreaDelay_timeout():
+	if isInside:
+		movement = Vector2.ZERO
+	else:
+		movement = player.position - self.position

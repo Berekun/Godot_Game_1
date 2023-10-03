@@ -5,6 +5,7 @@ const max_speed = 150
 const friction = 1000
 
 const Bala = preload("res://Bullets/Bala.tscn")
+const cam = preload("res://prota_movetxt/Camera2D.tscn")
 
 
 var velocity = Vector2.ZERO
@@ -14,6 +15,8 @@ onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
 
 func _ready():
+	var camera = cam.instance()
+	self.add_child(camera)
 	$Timer.start(0.4)
 
 func _physics_process(delta):

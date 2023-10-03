@@ -4,7 +4,7 @@
 [ext_resource path="res://enemy_movetxt/DarkWizzard.gd" type="Script" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 9.0
+radius = 11.0
 height = 10.0
 
 [sub_resource type="Animation" id=2]
@@ -212,6 +212,7 @@ radius = 134.034
 
 [node name="enemy" type="KinematicBody2D"]
 collision_layer = 2
+collision_mask = 3
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -241,14 +242,19 @@ parameters/playback = SubResource( 17 )
 parameters/Idle/blend_position = Vector2( 0, 0 )
 parameters/run/blend_position = Vector2( 0, 0 )
 
-[node name="Timer" type="Timer" parent="."]
+[node name="ShootTimer" type="Timer" parent="."]
+
+[node name="AreaDelay" type="Timer" parent="."]
+wait_time = 0.5
 
 [node name="Area2D" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 25 )
 
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="ShootTimer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="AreaDelay" to="." method="_on_AreaDelay_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
