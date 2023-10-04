@@ -7,6 +7,8 @@ const friction = 1000
 const Bala = preload("res://Bullets/Bala.tscn")
 const cam = preload("res://prota_movetxt/Camera2D.tscn")
 
+var hearts = 3
+var max_hearts = 3
 
 var velocity = Vector2.ZERO
 

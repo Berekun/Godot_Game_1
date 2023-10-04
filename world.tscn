@@ -158,3 +158,12 @@ show_collision = true
 format = 1
 
 [node name="YSort" type="YSort" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+scale = Vector2( 2, 2 )
+transform = Transform2D( 2, 0, 0, 2, 0, 0 )
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "HP=4"
