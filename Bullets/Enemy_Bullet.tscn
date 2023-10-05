@@ -10,7 +10,7 @@ height = 0.0
 [sub_resource type="CapsuleShape2D" id=2]
 height = 0.0
 
-[node name="KinematicBody2d" type="KinematicBody2D"]
+[node name="EnemyBullet" type="KinematicBody2D"]
 collision_layer = 0
 script = ExtResource( 2 )
 

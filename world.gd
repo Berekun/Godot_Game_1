@@ -2,12 +2,14 @@ extends Node2D
 
 const dw = preload("res://enemy_movetxt/DarkWizzard.tscn")
 const p = preload("res://prota_movetxt/player.tscn")
+const hud = preload("res://prota_movetxt/HUD.tscn")
 
 var rng = RandomNumberGenerator.new()
 
 func _ready():
 	_createPlayer()
 	_createEnemys()
+	_createHud()
 
 func _createEnemys():
 	var i = 0
@@ -27,3 +29,7 @@ func _createPlayer():
 	var player = p.instance()
 	player.position = Vector2.ZERO
 	get_node("YSort").add_child(player)
+	
+func _createHud():
+	var h = hud.instance()
+	get_node("CanvasLayer").add_child(h)

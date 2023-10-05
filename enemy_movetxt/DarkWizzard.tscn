@@ -1,7 +1,8 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://enemy_movetxt/DW.png" type="Texture" id=1]
 [ext_resource path="res://enemy_movetxt/DarkWizzard.gd" type="Script" id=2]
+[ext_resource path="res://Stats/Stats.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 11.0
@@ -210,6 +211,10 @@ start_node = "Idle"
 [sub_resource type="CircleShape2D" id=25]
 radius = 134.034
 
+[sub_resource type="CapsuleShape2D" id=26]
+radius = 35.0
+height = 10.0
+
 [node name="enemy" type="KinematicBody2D"]
 collision_layer = 2
 collision_mask = 3
@@ -247,14 +252,22 @@ parameters/run/blend_position = Vector2( 0, 0 )
 [node name="AreaDelay" type="Timer" parent="."]
 wait_time = 0.5
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Collision" type="Area2D" parent="."]
 visible = false
 collision_layer = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision"]
 shape = SubResource( 25 )
+
+[node name="HurtCollision" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtCollision"]
+shape = SubResource( 26 )
+
+[node name="Stats" parent="." instance=ExtResource( 3 )]
 
 [connection signal="timeout" from="ShootTimer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="AreaDelay" to="." method="_on_AreaDelay_timeout"]
-[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
+[connection signal="body_entered" from="Collision" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Collision" to="." method="_on_Area2D_body_exited"]
+[connection signal="body_entered" from="HurtCollision" to="." method="_on_HurtCollision_body_entered"]

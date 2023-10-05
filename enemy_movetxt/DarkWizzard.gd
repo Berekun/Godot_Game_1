@@ -9,6 +9,8 @@ onready var animationState = animationTree.get("parameters/playback")
 var isInside = false
 onready var movement = player.position - self.position
 
+onready var stats = $Stats
+
 var velocity = 100
 
 func _ready():
@@ -50,3 +52,8 @@ func _on_AreaDelay_timeout():
 		movement = Vector2.ZERO
 	else:
 		movement = player.position - self.position
+
+
+func _on_HurtCollision_body_entered(body):
+	if body != self && body.name != "EnemyBullet":
+		print(body.name)
