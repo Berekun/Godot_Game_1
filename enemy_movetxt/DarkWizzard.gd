@@ -55,5 +55,9 @@ func _on_AreaDelay_timeout():
 
 
 func _on_HurtCollision_body_entered(body):
-	if body != self && body.name != "EnemyBullet":
-		print(body.name)
+	if body != self:
+		stats.health -= 1
+
+
+func _on_Stats_no_health():
+	queue_free()

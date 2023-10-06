@@ -9,11 +9,14 @@ const cam = preload("res://prota_movetxt/Camera2D.tscn")
 
 var velocity = Vector2.ZERO
 
+var stats = PlayerStats
+
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
 
 func _ready():
+	stats.connect("no_health", self, "queue_free")
 	var camera = cam.instance()
 	self.add_child(camera)
 	$Timer.start(0.4)
@@ -41,6 +44,7 @@ func shoot():
 		bala.position = self.position
 		bala.angle = get_angle_to(get_global_mouse_position())
 		get_parent().add_child(bala)
+		
 		
 
 func _on_Timer_timeout():
