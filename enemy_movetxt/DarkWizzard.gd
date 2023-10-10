@@ -18,10 +18,14 @@ func _ready():
 	$AreaDelay.start()
 
 func _physics_process(delta): 
+	player = get_parent().get_node("player")
+	
 	if movement == Vector2.ZERO:
 		animationState.travel("Idle")
 	else:
-		movement = player.position - self.position
+		if player != null:
+			movement = player.position - self.position
+			
 		animationTree.set("parameters/Idle/blend_position", movement)
 		animationTree.set("parameters/run/blend_position", movement)
 		animationState.travel("run")
@@ -32,7 +36,8 @@ func _physics_process(delta):
 func shoot():
 	var bala = Bala.instance()
 	bala.position = self.position
-	bala.angle = get_angle_to(player.position)
+	if player != null:
+		bala.angle = get_angle_to(player.position)
 	get_parent().add_child(bala)
 
 
@@ -48,16 +53,15 @@ func _on_Area2D_body_exited(body):
 		isInside = false
 
 func _on_AreaDelay_timeout():
-	if isInside:
-		movement = Vector2.ZERO
-	else:
-		movement = player.position - self.position
-
-
-func _on_HurtCollision_body_entered(body):
-	if body != self:
-		stats.health -= 1
+	if player != null:
+		if isInside:
+			movement = Vector2.ZERO
+		else:
+			movement = player.position - self.position
 
 
 func _on_Stats_no_health():
 	queue_free()
+	
+	if PlayerStats.health <= 0:
+		get_tree().change_scene("res://DeadScene.tscn")

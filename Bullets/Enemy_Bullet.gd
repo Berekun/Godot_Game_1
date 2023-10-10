@@ -18,6 +18,7 @@ func _on_Area2D_body_entered(body):
 		self.queue_free()
 		
 		if body.name == "player":
-			var player = get_parent().get_node("player")
+			PlayerStats.health -= 0.5
+			print(PlayerStats.health)
 		
 

@@ -45,8 +45,6 @@ func shoot():
 		bala.angle = get_angle_to(get_global_mouse_position())
 		get_parent().add_child(bala)
 		
-		
 
 func _on_Timer_timeout():
 	shoot()
-

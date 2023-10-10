@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://hud/hud.gd" type="Script" id=1]
+[ext_resource path="res://hud/full_heart.png" type="Texture" id=2]
+[ext_resource path="res://hud/half_heart.png" type="Texture" id=3]
+[ext_resource path="res://hud/void_heart.png" type="Texture" id=4]
+
+[node name="Control" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 1 )
+
+[node name="void_hearts" type="TextureRect" parent="."]
+margin_left = 20.0
+margin_top = 6.0
+margin_right = 67.0
+margin_bottom = 22.0
+rect_scale = Vector2( 3, 3 )
+texture = ExtResource( 4 )
+stretch_mode = 2
+
+[node name="half_hearts" type="TextureRect" parent="."]
+margin_left = 20.0
+margin_top = 6.0
+margin_right = 68.0
+margin_bottom = 22.0
+rect_scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+stretch_mode = 2
+
+[node name="full_hearts" type="TextureRect" parent="."]
+margin_left = 20.0
+margin_top = 6.0
+margin_right = 68.0
+margin_bottom = 22.0
+rect_scale = Vector2( 3, 3 )
+texture = ExtResource( 2 )
+stretch_mode = 2

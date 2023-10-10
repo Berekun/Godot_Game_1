@@ -15,5 +15,7 @@ func _physics_process(delta):
 	movement = move_and_slide(movement)
 	
 func _on_Area2D_body_entered(body):
-		self.queue_free()
-
+	self.queue_free()
+	
+	if body.name == "enemy":
+		get_parent().get_node("enemy").stats.health -= 1
