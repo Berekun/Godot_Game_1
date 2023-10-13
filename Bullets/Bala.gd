@@ -17,5 +17,5 @@ func _physics_process(delta):
 func _on_Area2D_body_entered(body):
 	self.queue_free()
 	
-	if body.name == "enemy":
-		get_parent().get_node("enemy").stats.health -= 1
+	if body.get_collision_layer() == 2:
+		body.stats.health -= 1

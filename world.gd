@@ -12,14 +12,12 @@ func _ready():
 func _createEnemys():
 	var i = 0
 	
-	while i < 1:
+	while i < 3:
 		i += 1
 		var enemy = dw.instance()
 		var newPosition = Vector2.ZERO
 		newPosition.x = rng.randi_range(-400, 400)
-		print(newPosition.x)
 		newPosition.y = rng.randi_range(-300, 300)
-		print(newPosition.y)
 		enemy.position = newPosition
 		get_node("YSort").add_child(enemy)
 
