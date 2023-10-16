@@ -19,6 +19,5 @@ func _on_Area2D_body_entered(body):
 		
 		if body.name == "player":
 			PlayerStats.health -= 0.5
-			print(PlayerStats.health)
 		
 
