@@ -12,8 +12,6 @@ func set_hearts(value):
 	hearts = clamp(value, 0, max_hearts)
 	if heartUIFull != null:
 		heartUIFull.rect_size.x = hearts * 16
-		print(heartUIFull.rect_size.x)
-		print(hearts)
 	
 func max_set_hearts(value):
 	max_hearts = max(value, 1)

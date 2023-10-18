@@ -62,6 +62,3 @@ func _on_AreaDelay_timeout():
 
 func _on_Stats_no_health():
 	queue_free()
-	
-	if PlayerStats.health <= 0:
-		get_tree().change_scene("res://DeadScene.tscn")
