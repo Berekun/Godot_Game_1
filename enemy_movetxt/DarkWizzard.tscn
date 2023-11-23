@@ -213,7 +213,7 @@ radius = 134.034
 
 [node name="enemy" type="KinematicBody2D"]
 collision_layer = 2
-collision_mask = 2
+collision_mask = 19
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -249,8 +249,7 @@ parameters/run/blend_position = Vector2( 0, 0 )
 wait_time = 0.5
 
 [node name="Collision" type="Area2D" parent="."]
-visible = false
-collision_layer = 0
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collision"]
 shape = SubResource( 25 )

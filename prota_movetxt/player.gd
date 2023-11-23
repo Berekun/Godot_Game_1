@@ -9,14 +9,14 @@ const cam = preload("res://prota_movetxt/Camera2D.tscn")
 
 var velocity = Vector2.ZERO
 
-var stats = PlayerStats
+onready var stats = PlayerStats
 
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
 
 func _ready():
-	stats.connect("no_health", self, "queue_free")
+	stats.connect("no_health_player", get_tree(), "change_scene", ["res://DeadScene.tscn"])
 	var camera = cam.instance()
 	self.add_child(camera)
 	$Timer.start(0.4)

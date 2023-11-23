@@ -11,7 +11,7 @@ func _ready():
 
 func _createEnemys():
 	var i = 0
-	
+
 	while i < 3:
 		i += 1
 		var enemy = dw.instance()

@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://hud/hud.tscn" type="PackedScene" id=1]
 [ext_resource path="res://world.gd" type="Script" id=2]
 [ext_resource path="res://map/world.png" type="Texture" id=3]
+[ext_resource path="res://Decoration.gd" type="Script" id=4]
 
 [sub_resource type="ConvexPolygonShape2D" id=7]
 points = PoolVector2Array( 0.826225, 0, 1.05989, 15.9362, 0, 16, 0, 16, 0, 16, 0, 0 )
@@ -278,8 +279,11 @@ tile_data = PoolIntArray( -1245210, 5, 0, -1245209, 5, 0, -1245208, 5, 0, -12452
 tile_set = SubResource( 12 )
 cell_size = Vector2( 16, 16 )
 show_collision = true
-collision_layer = 3
+collision_layer = 16
+collision_mask = 0
 format = 1
+tile_data = PoolIntArray( -655358, 0, 0 )
+script = ExtResource( 4 )
 
 [node name="YSort" type="YSort" parent="."]
 
